@@ -1,0 +1,29 @@
+caption {
+    background-color: rgb(29, 86, 139);
+    color: white;
+}
+.position {
+    background-color: rgb(85, 200, 235);
+}
+.city {
+    background-color: rgb(85, 200, 235);
+}
+.population {
+    background-color: rgb(85, 200, 235);
+}
+.number {
+    background-color: rgb(170, 169, 169);
+    text-align: center;
+}
+.estate {
+    background-color: rgb(175, 221, 235);
+}
+.total {
+    background-color: rgb(175, 221, 235);
+}
+.border {
+    background-color: rgb(175, 221, 235);
+}
+table {
+    background-color: rgb(175, 221, 235);
+}
