@@ -1,0 +1,100 @@
+.Strogonoff {
+    background: linear-gradient(yellow, rgb(92, 92, 52));
+    height: 25px;
+    width: 450px;
+    animation-name: strogonoff;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+    animation-play-state: running;
+    border: black solid;
+    display: flexbox;
+}
+@keyframes strogonoff {
+    from {
+        width: 50px;
+    }
+    to {
+        width: 450px;
+    }
+}
+.Lasanha {
+    background: linear-gradient(red, rgb(63, 31, 31));
+    height: 25px;
+    width: 300px;
+    animation-name: lasanha;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+    animation-play-state: running;
+    border: black solid;
+    display: flexbox;
+}
+@keyframes lasanha {
+    from {
+        width: 50px;
+    }
+    to {
+        width: 300px;
+    }
+}
+.Churrasco {
+    background: linear-gradient(blue, rgb(19, 19, 44));
+    height: 25px;
+    width: 500px;
+    animation-name: churrasco;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+    animation-play-state: running;
+    border: black solid;
+    display: flexbox;
+}
+@keyframes churrasco {
+    from {
+        width: 50px;
+    }
+    to {
+        width: 500px;
+    }
+}
+.Empadão {
+    background: linear-gradient(green, rgb(39, 83, 39));
+    height: 25px;
+    width: 400px;
+    animation-name: empadão;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+    animation-play-state: running;
+    border: black solid;
+    display: flexbox;
+}
+@keyframes empadão {
+    from {
+        width: 50px;
+    }
+    to {
+        width: 400px;
+    }
+}
+.Jiló {
+    background: linear-gradient(rgb(172, 0, 172), rgb(58, 23, 58));
+    height: 25px;
+    width: 50px;
+    animation-name: jiló;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+    animation-play-state: running;
+    display: flexbox;
+    border: black solid
+}
+@keyframes jiló {
+    from {
+        width: 25px;
+    }
+    to {
+        width: 50px;
+    }
+}
