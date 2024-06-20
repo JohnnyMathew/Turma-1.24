@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Verificação de Emancipação</h1>
+    <button onclick="Emancipação()">Verificar Emancipação</button>
+    <p id="resultado"></p>
+</body>
+<script>
+    function Emancipação() {
+            var sexo = prompt("Olá! Poderia falar seu gênero? ");
+            var idade = prompt("Poderia falar sua idade? ");
+
+            if (sexo === "Feminino") {
+                    if (idade >= 21) {
+                        alert("A mulher é emancipada.");
+                    }
+            } else if (sexo === "Masculino"){
+                if (idade >= 18) {
+                    alert("O homem é emancipado.");
+                }
+            }
+            if (sexo === "Feminino") {
+                    if (idade <= 20) {
+                        alert("A mulher não é emancipada.");
+                    }
+            } else if (sexo === "Masculino"){
+                if (idade <= 17) {
+                    alert("O homem não é emancipado.");
+                }
+            }
+
+        }
+</script>
+</html>
