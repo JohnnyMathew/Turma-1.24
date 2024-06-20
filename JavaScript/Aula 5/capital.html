@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Descubra o Estado pela UF</h1>
+    <button onclick="solicitarUF()">Verificar UF</button>
+    <p id="resultado"></p>
+</body>
+<script>
+    function solicitarUF() {
+        const uf = prompt("Digite a sigla da UF (SP, RJ, ES, MG):");
+        let estado = "";
+
+        if (uf === "SP") {
+            estado = "São Paulo";
+        } else if (uf === "RJ") {
+            estado = "Rio de Janeiro";
+        } else if (uf === "ES") {
+            estado = "Espírito Santo";
+        } else if (uf === "MG") {
+            estado = "Minas Gerais";
+        } else {
+            estado = "UF inválida. Por favor, insira uma sigla válida do Sudeste.";
+        }
+
+        document.getElementById("resultado").textContent = estado;
+    }
+</script>
+</html>
