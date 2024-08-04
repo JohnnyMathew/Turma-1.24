@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo da biblioteca</title>
+    <script src="recibo.js" defer></script>
+</head>
+<body>
+    <h1>Gerador de Recibo da Biblioteca</h1>
+    <form id="form-recibo">
+        <label for="nome">Nome do Usuário:</label><br>
+        <input type="text" id="nome" name="nome"><br><br>
+        <label for="quantidade">Quantidade de Livros Emprestados:</label><br>
+        <input type="number" id="quantidade" name="quantidade"><br><br>
+        <button type="button" onclick="gerarRecibo()">Gerar Recibo</button>
+    </form>
+    <div id="recibo"></div>
+</body>
+</html>
