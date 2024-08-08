@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros Elétricos</title>
+    <script src="carros.js" defer></script>
+</head>
+<body>
+    <h1>Cadastro de Carros</h1>
+    
+    <form id="carForm">
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" required>
+        
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" required>
+        
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" required>
+        
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" required>
+            <option value="convencional">Convencional</option>
+            <option value="eletrico">Elétrico</option>
+        </select>
+
+        <label for="bateria" id="bateriaLabel" style="display: none;">Capacidade da Bateria (kWh):</label>
+        <input type="number" id="bateria" style="display: none;">
+        
+        <button type="submit">Adicionar Carro</button>
+    </form>
+    
+    <h2>Carros Cadastrados</h2>
+</body>
+</html>
