@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Pokémon</title>
+    <script src="carta.js" defer></script>
+</head>
+<body>
+    <h1>Pokémon Card</h1>
+    <input type="text" id="search" placeholder="Digite o nome ou ID do Pokémon...">
+    <button onclick="fetchPokemon()">Buscar Pokémon</button>
+
+    <div id="card" style="display: none;">
+        <img id="pokemon-image" src="" alt="Imagem do Pokémon">
+        <div id="pokemon-name"></div>
+        <div id="pokemon-type"></div>
+    </div>
+</body>
+</html>
