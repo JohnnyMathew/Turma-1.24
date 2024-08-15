@@ -1,6 +1,3 @@
-var tarefas = [];
-
-
 const taskForm = document.getElementById('task-form');
 const taskTitle = document.getElementById('task-title');
 const taskDesc = document.getElementById('task-desc');
@@ -9,87 +6,105 @@ const allTasksBtn = document.getElementById('all-tasks');
 const pendingTasksBtn = document.getElementById('pending-tasks');
 const completedTasksBtn = document.getElementById('completed-tasks');
 
+const API_URL = 'http://localhost:3000/tarefas';
 
-taskForm.addEventListener('submit', (e) => {
+
+document.addEventListener('DOMContentLoaded', fetchTasks);
+
+
+taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const newTask = {
-        id: Date.now(),
         title: taskTitle.value,
         description: taskDesc.value,
         completed: false
     };
+    
+    const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newTask)
+    });
 
-    tarefas.push(newTask);
-    taskForm.reset();
-    renderTasks();
+    if (response.ok) {
+        fetchTasks();
+        taskForm.reset();
+    }
 });
 
 
-function renderTasks(filter = 'all') {
+async function fetchTasks(filter = 'all') {
+    const response = await fetch(API_URL);
+    const tasks = await response.json();
+    
     taskList.innerHTML = '';
 
-    tarefas
-        .filter(task => {
-            if (filter === 'pending') return !task.completed;
-            if (filter === 'completed') return task.completed;
-            return true;
-        })
-        .forEach(task => {
-            const taskItem = document.createElement('li');
-            taskItem.textContent = `${task.title}: ${task.description}`;
-            if (task.completed) {
-                taskItem.style.textDecoration = 'line-through';
-                taskItem.style.color = 'gray';
-            }
+    tasks.filter(task => {
+        if (filter === 'pending') return !task.completed;
+        if (filter === 'completed') return task.completed;
+        return true;
+    }).forEach(task => {
+        const taskItem = document.createElement('li');
+        taskItem.classList.add('task-item');
+        if (task.completed) taskItem.classList.add('completed');
 
-            const editBtn = document.createElement('button');
-            editBtn.textContent = 'Editar';
-            editBtn.onclick = () => editTask(task.id);
+        taskItem.innerHTML = `
+            <span>${task.title}</span>
+            <div class="task-actions">
+                <button onclick="editTask(${task.id})">Editar</button>
+                <button onclick="deleteTask(${task.id})">Excluir</button>
+                <button onclick="toggleComplete(${task.id}, ${task.completed})">${task.completed ? 'Desmarcar' : 'Concluir'}</button>
+            </div>
+        `;
 
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Excluir';
-            deleteBtn.onclick = () => deleteTask(task.id);
-
-            const toggleBtn = document.createElement('button');
-            toggleBtn.textContent = task.completed ? 'Desmarcar' : 'Concluir';
-            toggleBtn.onclick = () => toggleComplete(task.id, task.completed);
-
-            taskItem.appendChild(editBtn);
-            taskItem.appendChild(deleteBtn);
-            taskItem.appendChild(toggleBtn);
-
-            taskList.appendChild(taskItem);
-        });
+        taskList.appendChild(taskItem);
+    });
 }
 
 
-function editTask(id) {
-    const newTitle = prompt('Novo título da tarefa:');
-    const newDescription = prompt('Nova descrição da tarefa:');
-
-    if (newTitle && newDescription) {
-        const task = tasks.find(t => t.id === id);
-        task.title = newTitle;
-        task.description = newDescription;
-        renderTasks();
+async function editTask(id) {
+    const newTitle = prompt('Editar título da tarefa:');
+    const newDescription = prompt('Editar descrição da tarefa:');
+    if (newTitle !== null && newDescription !== null) {
+        await fetch(`${API_URL}/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: newTitle,
+                description: newDescription,
+                completed: false
+            })
+        });
+        fetchTasks();
     }
 }
 
 
-function deleteTask(id) {
-    tarefas = tarefas.filter(task => task.id !== id);
-    renderTasks();
+async function deleteTask(id) {
+    await fetch(`${API_URL}/${id}`, {
+        method: 'DELETE'
+    });
+    fetchTasks();
 }
 
 
-function toggleComplete(id, completed) {
-    const task = tarefas.find(t => t.id === id);
-    task.completed = !completed;
-    renderTasks();
+async function toggleComplete(id, completed) {
+    await fetch(`${API_URL}/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ completed: !completed })
+    });
+    fetchTasks();
 }
 
 
-allTasksBtn.onclick = () => renderTasks('all');
-pendingTasksBtn.onclick = () => renderTasks('pending');
+allTasksBtn.addEventListener('click', () => fetchTasks('all'));
+pendingTasksBtn.addEventListener('click', () => fetchTasks('pending'));
+completedTasksBtn.addEventListener('click', () => fetchTasks('completed'));
 completedTasksBtn.onclick = () => renderTasks('completed');
