@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto</title>
+    <script src="projeto.js" defer></script>
+    <link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Aplicativo de Tarefas</h1>
+
+        
+        <form id="task-form">
+            <input type="text" id="task-title" placeholder="Título da Tarefa" required>
+            <textarea id="task-desc" placeholder="Descrição da Tarefa"></textarea>
+            <button type="submit">Adicionar Tarefa</button>
+        </form>
+
+
+        <div id="filters">
+            <button id="all-tasks">Todas</button>
+            <button id="pending-tasks">Pendentes</button>
+            <button id="completed-tasks">Concluídas</button>
+        </div>
+
+
+        <ul id="task-list"></ul>
+    </div>
+</body>
+</html>
