@@ -1,26 +1,22 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
     margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 0;
 }
 
-#app {
-    background: white;
+.container {
+    width: 400px;
+    margin: 50px auto;
     padding: 20px;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    color: #333;
 }
 
 form {
@@ -32,83 +28,51 @@ form {
 input, textarea {
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
 }
 
 button {
     padding: 10px;
     background-color: #007bff;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-#filters {
-    display: flex;
-    justify-content: space-around;
+.filter {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-#filters button {
-    background-color: #6c757d;
-    color: white;
-    flex: 1;
+.filter button {
     margin: 0 5px;
 }
 
-#filters button:hover {
-    background-color: #5a6268;
-}
-
-ul {
-    list-style: none;
+#task-list {
+    list-style-type: none;
     padding: 0;
 }
 
-li {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.task-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
-li.completed {
+.task-item.completed {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
 }
 
-button.edit-btn {
-    background-color: #ffc107;
+.task-actions {
+    display: flex;
+    gap: 10px;
 }
-
-button.edit-btn:hover {
-    background-color: #e0a800;
-}
-
-button.delete-btn {
-    background-color: #dc3545;
-}
-
-button.delete-btn:hover {
-    background-color: #c82333;
-}
-
-button.toggle-btn {
-    background-color: #28a745;
-}
-
-button.toggle-btn:hover {
-    background-color: #218838;
 }
