@@ -1,0 +1,45 @@
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+.filme-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 20px 0;
+  width: 90%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.filme-card h2 {
+  margin: 0 0 10px;
+}
+
+.filme-card p {
+  margin: 0;
+}
+
+.ação {
+  border-left: 4px solid #ff0000;
+}
+
+.comédia {
+  border-left: 4px solid #ffa500;
+}
+
+.drama {
+  border-left: 4px solid #0000ff;
+}
