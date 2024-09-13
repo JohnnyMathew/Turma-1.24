@@ -1,0 +1,36 @@
+.vitrine {
+  text-align: center;
+  padding: 20px;
+}
+
+.produtos {
+  display: flex;
+  justify-content: space-around;
+}
+
+h1 {
+  color: #663399;
+}
+
+.cartao {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+}
+
+.cartao img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.cartao h2 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.cartao p {
+  font-size: 1rem;
+  color: #666;
+}
